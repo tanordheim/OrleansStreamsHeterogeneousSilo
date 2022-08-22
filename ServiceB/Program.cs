@@ -13,11 +13,6 @@ var app = Host.CreateDefaultBuilder(args)
                 options.TableName = "test-cluster-state";
                 options.Service = ctx.Configuration.GetConnectionString("dynamodb") ?? "http://localhost:8000";
             })
-            .AddDynamoDBGrainStorage("PubSubStore", options =>
-            {
-                options.TableName = "test-pub-sub-state";
-                options.Service = ctx.Configuration.GetConnectionString("dynamodb") ?? "http://localhost:8000";
-            })
             .Configure<ClusterOptions>(options =>
             {
                 options.ClusterId = "test-cluster";

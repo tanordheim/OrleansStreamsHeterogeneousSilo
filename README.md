@@ -4,12 +4,22 @@ Showcases some issues I'm having with getting an Orleans cluster up and running 
 
 ### Service A
 
-This service uses DynamoDB clustering, in memory reminders, in memory streams and DynamoDB pub sub storage. It has one publisher grain that, when called, will call the subscriber grain to ask it to subscribe to the stream,
-then every time the reminder ticks it will send a message on that stream.
+This service uses:
+
+- DynamoDB clustering
+- DynamoDB pub sub storage
+- In memory reminders
+- In memory streams
+
+It has one publisher grain that, when called, will call the subscriber grain to ask it to subscribe to the stream, then every time the reminder ticks it will send a message on that stream.
 
 ### Service B
 
-This service uses DynamoDB clustering and DynamoDB pub sub storage, but has no reminders or streams configured. It has a dummy grain but its never activated.
+This service uses:
+
+- DynamoDB clustering
+
+It has has no grain storage, reminders or streams configured. It has a dummy grain but its never activated.
 
 ## The problem
 
